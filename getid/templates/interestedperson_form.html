@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>{% block title %}Welcome{% endblock %}</title>
+
+{% block css %}
+<link href="{{MEDIA_URL}}css.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+<meta name="google-site-verification" content="LSN5db1Saj_W3h2fguhkJUlRGdRRPLzzA9GZ338EknA" />
+
+</head>
+
+<body>
+
+{% block header %}
+{% endblock %}
+
+
+<div id="main">
+
+    <div id="logo"><a href="/"><img src="{{MEDIA_URL}}getid/images/logo.gif" alt="" /></a></div>
+
+{% block content %}
+    <h1>Hello! we are the TrulyYum team.</h1>
+    <p id="big">We make delightful food. Very Soon we will be delivering tasty lunches to your neighborhood in downtown Seattle. Signup to follow us in our quest to make your lunch anxiety a thing of the past.</p>
+    <div id="login">
+        <form action="" method="post" enctype="multipart/form-data">
+            {{ form.email }}
+            <input type="submit" value="Get Notified" class="getbutton" />
+            {{ form.email.errors }}
+        </form>
+    </div>
+{% endblock %}
+    <p id="small">
+        <input type="button" value=" " class="pullbutton" onclick="location.href='http://aboutlunch.wufoo.com/forms/tell-us-about-urself/'"/>
+<!--         <div class="pullbutton"><a href="http://aboutlunch.wufoo.com/forms/survey-of-lunch-habits/"></a></div> -->
+        Tell us how you would like to be served and we may just about send you a lovely T-shirt for free       
+    </p>
+    
+    <div id="bottom">
+    <div id="share">
+        	share..<br />
+            <a href=" http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.trulyyum.com"><img src="{{MEDIA_URL}}getid/images/s1.gif" alt="Facebook" /></a>
+            <a href="http://twitter.com/home?status=cool lunch delivery service in Seattle http://www.trulyyum.com/"><img src="{{MEDIA_URL}}getid/images/s3.gif" alt="Twitter" /></a>
+<!--
+            <a href="http://www.blogger.com/home"><img src="{{MEDIA_URL}}getid/images/s5.gif" alt="Blogger" /></a>
+            <a href="http://www.stumbleupon.com/"><img src="{{MEDIA_URL}}getid/images/s2.gif" alt="Stumble Upon" /></a>
+-->
+            <a href="http://www.myspace.com/index.cfm?fuseaction=postto&t=cool lunch delivery in seattle&u=http://www.trulyyum.com/&l="><img src="{{MEDIA_URL}}getid/images/s6.gif" alt="Myspace" /></a>
+<!--
+            <a href="#"><img src="{{MEDIA_URL}}getid/images/s4.gif" alt="Newsvine" /></a>
+            <a href="#"><img src="{{MEDIA_URL}}getid/images/s7.gif" alt="YouTube" /></a>
+-->
+
+      </div>
+
+        <div id="footer">
+            <p>©2009, 100 Percent Inc. All rights reserved.  &nbsp; &nbsp;  Send your thoughts to <a href="mailto:hello@trulyyum.com" style="text-decoration: none;">hello@trulyyum.com</a></p>
+        </div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11133193-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}"
+    xml:lang="{% firstof LANGUAGE_CODE 'en' %}"
+    lang="{% firstof LANGUAGE_CODE 'en' %}">
+
+
+  <body>
+
+    <script type="text/javascript">
+    Meebo=function(){(Meebo._=Meebo._||[]).push(arguments)};
+    (function(q){
+        var args = arguments;
+        if (!document.body) { return setTimeout(function(){ args.callee.apply(this, args) }, 100); }
+        var d=document, b=d.body, m=b.insertBefore(d.createElement('div'), b.firstChild); s=d.createElement('script');
+        m.id='meebo'; m.style.display='none'; m.innerHTML='<iframe id="meebo-iframe"></iframe>';
+        s.src='http'+(q.https?'s':'')+'://'+(q.stage?'stage-':'')+'cim.meebo.com/cim/cim.php?network='+q.network;
+        b.insertBefore(s, b.firstChild);
+    
+    })({network:'trulyyum_lu22qo'});
+    Meebo('makeEverythingSharable');
+    </script>
+
+    {% block header %}
+      <div id="header">
+        <div class="menu">
+          <a href="/"><img src="{{ MEDIA_URL }}global/logo.png" alt="" /></a>
+          {% if user.is_authenticated %}
+            Hi, {{ user.username }}!
+            <a href="{% url django.contrib.auth.views.logout %}">Logout</a>
+          {% else %}
+            <a href="{% url django.contrib.auth.views.login %}">Login</a>
+            <a href="{% url registration.views.register %}">Register</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endblock %}
+    <div id="content" class="column container">
+      {% block content-header %}
+        {% if error %}<div class="error">{{ error }}</div>{% endif %}
+        {% if info %}<div class="info">{{ info }}</div>{% endif %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="info">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endblock %}
+      
+      {% block content %}{% endblock %}
+    </div>
+    <div id="footer">
+   
+    </div>
+    <script type="text/javascript">
+    Meebo("domReady");
+    </script>
+
+  </body>
+</html>
